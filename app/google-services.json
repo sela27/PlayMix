@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "32418359473",
+    "firebase_url": "https://playmix-8d879.firebaseio.com",
+    "project_id": "playmix-8d879",
+    "storage_bucket": "playmix-8d879.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32418359473:android:77deaa43b9c5fed9bb5a90",
+        "android_client_info": {
+          "package_name": "com.example.playmix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32418359473-7t75ll82dubajc0bgfguho7ae801n2jt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.playmix",
+            "certificate_hash": "0bce87ec1f7d1730525e3039dc64e573a59b03ed"
+          }
+        },
+        {
+          "client_id": "32418359473-0je2lcsejfeh4u6np9mnl7j5u706v4uj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFeenh1TziQ_DV5MVoT94M30erl3lkTMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32418359473-0je2lcsejfeh4u6np9mnl7j5u706v4uj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
