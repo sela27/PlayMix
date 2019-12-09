@@ -33,24 +33,22 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
     FirebaseUser user;
-
+    boolean test = false;
     LoginButton loginButton;
     CallbackManager callbackManager;
+    AuthCredential credentialTester;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
+        setContentView(R.layout.activity_main);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
         if(user == null)
         {
-            setContentView(R.layout.activity_main);
-            FacebookSdk.sdkInitialize(getApplicationContext());
-            loginButton = (LoginButton)findViewById(R.id.login_button);
-
-            callbackManager = CallbackManager.Factory.create();
-            loginButton.setPermissions(Arrays.asList("email"));
-
-
+            //loginButton = (LoginButton)findViewById(R.id.login_button);
+            setUI();
         }
         else
         {
@@ -59,6 +57,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
+    }
+
+
+    private void setUI() {
+
+        loginButton = (LoginButton) findViewById(R.id.login_button);
+        //loginButton.setOnClickListener();
+        loginButton.setPermissions(Arrays.asList("email"));
+
     }
 
     @Override
@@ -73,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 HAndleFacebookToken(loginResult.getAccessToken());
+                Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MainActivity.this,FreeUser.class));
             }
 
             @Override
@@ -91,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
     private void HAndleFacebookToken(AccessToken accessToken)
     {
         AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
+        credentialTester=credential;
         auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -98,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     FirebaseUser myuserobj = auth.getCurrentUser();
                     //UpdateUI(myuserobj);
+                    test = true;
                 }
                 else
                 {
@@ -105,5 +116,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    private void validate(View view){
+        if (test){
+            Intent userScreen = new Intent(MainActivity.this , FreeUser.class);
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"blabla",Toast.LENGTH_LONG).show();
+        }
     }
 }
