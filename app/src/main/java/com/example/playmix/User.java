@@ -8,4 +8,11 @@ public class User extends AbstractUser {
 
     public User() {
     }
+    void upgrade_gold(){
+        this.setStatus(GOLD_USER);
+
+    }
+    void upgrade_platinum(){
+        this.setStatus(PLATINUM_USER);
+    }
 }
