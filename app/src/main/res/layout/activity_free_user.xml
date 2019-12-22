@@ -10,42 +10,41 @@
         android:id="@+id/button2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="My PlayMix"
+        android:text="Browse Library"
         android:textAllCaps="false"
-        android:textSize="20sp"
         android:textColor="#FFFACD"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.332" />
+        app:layout_constraintVertical_bias="0.196" />
 
     <Button
         android:id="@+id/buttonUpgrade"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="372dp"
         android:text="Upgrade Subscription"
         android:textColor="#FFF5EE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.71"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:layout_constraintVertical_bias="0.11" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonLogOut"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:text="Log Out"
         android:textColor="#FFFFD5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Log Out"
         app:layout_constraintTop_toBottomOf="@+id/buttonUpgrade"
-        app:layout_constraintVertical_bias="0.114" />
+        app:layout_constraintVertical_bias="0.256" />
 
     <TextView
         android:id="@+id/textView3"
@@ -58,4 +57,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.528" />
+
+    <Button
+        android:id="@+id/buttonMyLib"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="My PlayMix"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUpgrade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.71"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintVertical_bias="0.465" />
 </androidx.constraintlayout.widget.ConstraintLayout>

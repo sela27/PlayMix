@@ -19,17 +19,19 @@ public class UserProfile extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser firebaseUser;
 
-    Button library;
+    Button store_browse;
     Button upgrade;
     Button Exit;
+    Button myLib;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_free_user);
-        library = (Button) findViewById(R.id.button2); //My PlayMix Button
+        store_browse = (Button) findViewById(R.id.button2); //My PlayMix Button
 
-        library.setOnClickListener(new View.OnClickListener() {
+        store_browse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent freeLibrary = new Intent(UserProfile.this,FreeUserScreen.class);
@@ -53,6 +55,17 @@ public class UserProfile extends AppCompatActivity {
                 System.exit(0);
             }
         });
+        myLib = findViewById(R.id.buttonMyLib);
+
+        myLib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserProfile.this,UserLibrary.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
 
 }

@@ -1,9 +1,14 @@
 package com.example.playmix;
 
+import java.util.LinkedList;
+
 public class User extends AbstractUser {
+    LinkedList<Game> myGames;
 
     public User(String email, String name) {
-        super(email, name);
+        this.setEmail(email);
+        this.setName(name);
+        myGames=new LinkedList<>();
     }
 
     public User() {

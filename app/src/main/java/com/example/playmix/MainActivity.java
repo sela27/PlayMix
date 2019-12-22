@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         auth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
-       // databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(auth.getInstance().getCurrentUser().getUid());
+       // dbUsers = FirebaseDatabase.getInstance().getReference("Users").child(auth.getInstance().getCurrentUser().getUid());
         firebaseUser = auth.getCurrentUser();
         setContentView(R.layout.activity_main);
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -74,11 +74,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setUI() {
-
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setPermissions(Arrays.asList("email"));
         //loginButton.setOnClickListener((View.OnClickListener) this);
-
     }
 
     public void onClick(View v){
@@ -113,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(LoginResult loginResult) {
                 HAndleFacebookToken(loginResult.getAccessToken());
                 Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_LONG).show();
-                //if (databaseReference.child("Users").child(auth.getCurrentUser().getUid()).)
+                //if (dbUsers.child("Users").child(auth.getCurrentUser().getUid()).)
                 addUser(loginResult.getAccessToken());
                 startActivity(new Intent(MainActivity.this, UserProfile.class));
             }
@@ -136,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         final String id = auth.getCurrentUser().getUid();
         final long[] status = new long[1];
         status[0] = 0;
-        //user.setStatus(Long.parseLong(databaseReference.child("Users").child(id).child("status").toString()));
+        //user.setStatus(Long.parseLong(dbUsers.child("Users").child(id).child("status").toString()));
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

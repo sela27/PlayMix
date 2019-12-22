@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class FreeUserScreen extends AppCompatActivity {
 
     ImageButton freeUser_game1;//Worms
@@ -16,10 +20,18 @@ public class FreeUserScreen extends AppCompatActivity {
     ImageButton freeUser_game5;//fifa15
     ImageButton freeUser_game6;//sonic
 
+
+    DatabaseReference databaseReference;
+    FirebaseDatabase firebaseDatabase;
+    FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_free_user_screen);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+        auth = FirebaseAuth.getInstance();
         freeUser_game1 = (ImageButton)findViewById(R.id.imageButtonWorms);
         freeUser_game2 = (ImageButton)findViewById(R.id.imageButtonMario);
         freeUser_game3 = (ImageButton)findViewById(R.id.imageButtonDoom);
@@ -30,6 +42,7 @@ public class FreeUserScreen extends AppCompatActivity {
         freeUser_game1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").setValue("Worms");
                 download_game();
             }
         });
