@@ -9,21 +9,30 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class GoldUserScreen extends AppCompatActivity {
 
-    ImageButton goldUser_game1;//Worms
-    ImageButton goldUser_game2;//Mario
-    ImageButton goldUser_game3;//Doom
-    ImageButton goldUser_game4;//angry birds
-    ImageButton goldUser_game5;//fifa15
-    ImageButton goldUser_game6;//sonic
+    ImageButton goldUser_game1;//WWE
+    ImageButton goldUser_game2;//Rayman
+    ImageButton goldUser_game3;//NBA
+    ImageButton goldUser_game4;//Battles
+    ImageButton goldUser_game5;//Harry Poter
+    ImageButton goldUser_game6;//Warcraft
     Button showMore;
+    DatabaseReference databaseReference;
+    FirebaseDatabase firebaseDatabase;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gold_user_screen);
-
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+        auth = FirebaseAuth.getInstance();
         goldUser_game1 = (ImageButton) findViewById(R.id.imageButtonWWE);
         goldUser_game2 = (ImageButton) findViewById(R.id.imageButtonRayman);
         goldUser_game3 = (ImageButton) findViewById(R.id.imageButtonNBA);
@@ -34,36 +43,42 @@ public class GoldUserScreen extends AppCompatActivity {
         goldUser_game1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").child("WWE").setValue(1);
                 download_game();
             }
         });
         goldUser_game2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").child("Rayman").setValue(1);
                 download_game();
             }
         });
         goldUser_game3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").child("NBA 2K18").setValue(1);
                 download_game();
             }
         });
         goldUser_game4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").child("Battles").setValue(1);
                 download_game();
             }
         });
         goldUser_game5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").child("Harry Poter").setValue(1);
                 download_game();
             }
         });
         goldUser_game6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").child("World Of Warcraft").setValue(1);
                 download_game();
             }
         });

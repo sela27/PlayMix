@@ -93,12 +93,12 @@ public class UserLibrary extends AppCompatActivity {
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             LayoutInflater layoutInflater = (LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View row = layoutInflater.inflate(R.layout.row, parent, false);
-            ImageView images = row.findViewById(R.id.image);
+            //ImageView images = row.findViewById(R.id.image);
             TextView myTitle = row.findViewById(R.id.textView1);
             TextView myDescription = row.findViewById(R.id.textView2);
 
             // now set our resources on views
-            images.setImageResource(pictures.get(position));
+            //images.setImageResource(pictures.get(position));
             myTitle.setText(names.get(position));
             myDescription.setText("The Wonderful Game Of: " + names.get(position));
             return row;
