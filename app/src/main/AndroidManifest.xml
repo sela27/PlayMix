@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserLibrary"></activity>
+        <activity android:name=".DevRegisterActivity"></activity>
+        <activity android:name=".UserLibrary" />
         <activity android:name=".UpgradeSub" />
         <activity android:name=".GoldUserScreen" />
         <activity android:name=".FreeUserScreen" />

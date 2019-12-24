@@ -42,19 +42,21 @@ public class FreeUserScreen extends AppCompatActivity {
         freeUser_game1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").setValue("Worms");
+                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").child("Worms").setValue(1);
                 download_game();
             }
         });
         freeUser_game2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").child("Mario").setValue(1);
                 download_game();
             }
         });
         freeUser_game3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                databaseReference.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList").child("Doom").setValue(1);
                 download_game();
             }
         });

@@ -58,20 +58,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
-        if(firebaseUser == null)
-        {
-            //loginButton = (LoginButton)findViewById(R.id.login_button);
-            setUI();
-        }
-        else
-        {
+        if (firebaseUser != null) {
             //Intent myIntent = new Intent(MainActivity.this,ProfileActivity.class);
             //startActivity(myIntent);
+        } else {
+            //loginButton = (LoginButton)findViewById(R.id.login_button);
+            setUI();
         }
 
         setContentView(R.layout.activity_main);
     }
-
 
     private void setUI() {
         loginButton = (LoginButton) findViewById(R.id.login_button);
@@ -112,16 +108,16 @@ public class MainActivity extends AppCompatActivity {
                 HAndleFacebookToken(loginResult.getAccessToken());
                 Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_LONG).show();
                 //if (dbUsers.child("Users").child(auth.getCurrentUser().getUid()).)
+                auth = FirebaseAuth.getInstance();
                 addUser(loginResult.getAccessToken());
                 startActivity(new Intent(MainActivity.this, UserProfile.class));
             }
 
             @Override
             public void onCancel() {
-                Toast.makeText(getApplicationContext(), "firebaseUser cancelled it", Toast.LENGTH_LONG).show();;
+                Toast.makeText(getApplicationContext(), "firebaseUser cancelled it", Toast.LENGTH_LONG).show();
 
             }
-
             @Override
             public void onError(FacebookException error) {
                 Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
@@ -193,4 +189,10 @@ public class MainActivity extends AppCompatActivity {
         LoginManager.getInstance().logOut();
         super.onStop();
     }
+
+    public void Onclickregister(View v)
+    {
+        startActivity(new Intent(MainActivity.this, DevRegisterActivity.class));
+    }
+
 }

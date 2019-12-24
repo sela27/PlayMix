@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -45,7 +46,7 @@ public class UserLibrary extends AppCompatActivity {
         games_names = new LinkedList<>();
         games = new ArrayList<>();
         listView = findViewById(R.id.listView);
-        listView.setAdapter(new MyAdapter(this,games_pictures,games_names));
+        //listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
        //dbUsers.child("Users").child(auth.getCurrentUser().getUid()).child("GamesList")
 
         dbUsers.addValueEventListener(new ValueEventListener() {
@@ -53,17 +54,18 @@ public class UserLibrary extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
                     for (DataSnapshot snapshot:dataSnapshot.getChildren()){
-                        String g = snapshot.toString();
+                        String g = snapshot.getKey();
                         games_names.add(g);
                         //String picture = "R.drawable.free_usr_game1";
                         //games_pictures.add(Integer.parseInt(picture));
-                        Game game = new Game(snapshot.getValue(Game.class));
+                        Game game = new Game(g);
                         games.add(game);
                     }
                 }
                 else {
                     Toast.makeText(UserLibrary.this,"No Games Added Yet",Toast.LENGTH_LONG).show();
                 }
+                listView.setAdapter(new MyAdapter(UserLibrary.this,games_pictures,games_names));
             }
 
             @Override
@@ -71,6 +73,7 @@ public class UserLibrary extends AppCompatActivity {
 
             }
         });
+
     }
 
     class MyAdapter extends ArrayAdapter<String> {
@@ -80,7 +83,7 @@ public class UserLibrary extends AppCompatActivity {
         List<String> names;
 
         MyAdapter(Context c, LinkedList<Integer> pictures, LinkedList<String> names) {
-            super(c, R.layout.row, R.id.textView1, names);
+            super(c,R.layout.row, R.id.textView1, names);
             this.context = c;
             this.pictures = pictures;
             this.names = names;
