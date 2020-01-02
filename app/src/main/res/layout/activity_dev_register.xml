@@ -26,7 +26,7 @@
         app:layout_constraintBottom_toTopOf="@+id/TextPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/TextName"
-        app:layout_constraintVertical_bias="0.633" />
+        app:layout_constraintVertical_bias="0.531" />
 
     <TextView
         android:id="@+id/TextPassword"
@@ -36,10 +36,10 @@
         android:text="Password:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextName"
-        app:layout_constraintVertical_bias="0.456" />
+        app:layout_constraintVertical_bias="0.415" />
 
     <EditText
         android:id="@+id/editName"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Enter Developer Name"
         app:layout_constraintBottom_toTopOf="@+id/editEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.728"
@@ -63,6 +63,7 @@
         android:layout_marginTop="88dp"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:hint="Email Adress"
         app:layout_constraintBottom_toTopOf="@+id/TextPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,9 +75,10 @@
         android:id="@+id/editText5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="92dp"
         android:layout_marginTop="76dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/TextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editEmail" />
@@ -94,5 +96,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText5"
         app:layout_constraintVertical_bias="0.067" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="172dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/original_playmix_logo" />
+
+    <TextView
+        android:id="@+id/developerRegTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="48dp"
+        android:text="Developer Registeration"
+        android:fontFamily="@font/caesar_dressing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

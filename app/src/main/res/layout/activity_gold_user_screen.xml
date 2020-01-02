@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B5070606"
     tools:context=".FreeUserScreen">
 
     <ImageButton
@@ -35,25 +36,20 @@
         android:layout_width="137dp"
         android:layout_height="136dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButtonMario"
-        app:layout_constraintEnd_toStartOf="@+id/imageButtonFifa"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonWWE"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.458"
         app:srcCompat="@drawable/gold_usr_game3" />
 
     <ImageButton
         android:id="@+id/imageButtonBattles"
         android:layout_width="137dp"
         android:layout_height="136dp"
-        android:layout_marginEnd="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.639"
-        app:layout_constraintStart_toEndOf="@+id/imageButtonWorms"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.156"
         app:srcCompat="@drawable/gold_usr_game4" />
 
     <ImageButton
@@ -88,11 +84,45 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="96dp"
         android:layout_marginBottom="44dp"
-        android:text="Show More Games"
-        android:textColor="#FF00"
         android:outlineAmbientShadowColor="#0009ef"
         android:shadowColor="#33cc5a"
+        android:text="Show More Games"
+        android:textColor="#FF00"
         android:textSize="23dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/screenTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="212dp"
+        android:text="Gold Games"
+        android:textColor="#ffd770"
+        android:textSize="30dp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="146dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/original_playmix_logo" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="76dp"
+        android:text="Click on a game to add"
+        android:textColor="#ffd770"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
